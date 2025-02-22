@@ -13,6 +13,10 @@
     "fix:format": "npm run prettier -- --write",
     "validate": "npm-run-all --parallel typecheck lint test fix:format",
     "test": "jest --detectOpenHandles --verbose --silent --config jest.config.ts",
+    "test:consumer": "rm -rf ./pacts && jest --config jest-pact.config.ts --detectOpenHandles",
+    "publish:pact": ". ./scripts/publish-pact.sh",
+    "can:i:deploy:consumer": ". ./scripts/can-i-deploy-consumer.sh",
+    "record:consumer:deployment": ". ./scripts/record-consumer-deployment.sh",
     "test:watch": "jest --watch --config jest.config.ts",
     "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.jest.json",
     "lint": "eslint --ext=.js,.ts,.tsx --fix"
